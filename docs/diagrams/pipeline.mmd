@@ -1,0 +1,47 @@
+flowchart TB
+    subgraph SRC[Sources]
+        S1[(Legacy 311 export<br/>CSV, 6,299 rows)]
+        S2[/Live requests<br/>web, email, phone/]
+    end
+    subgraph BATCH[Batch path: historical data]
+        E[Extract<br/>read raw CSV]
+        T[Transform<br/>parse dates, map labels,<br/>redact PII, geocode, de-duplicate]
+        L[(Load<br/>historical_request)]
+        R[/Rejects CSV<br/>+ etl_run log/]
+        LAND[(Land raw<br/>raw_311_landing)]
+        V[SQL views<br/>schema on read]
+        TR[Train + evaluate<br/>classifier]
+        M[(model.pkl<br/>+ metrics)]
+    end
+    subgraph LIVE[Real-time path: triage pipeline]
+        P1[Redact PII]
+        P2{Safety<br/>keyword?}
+        P3[Classify]
+        P4[Geocode]
+        P5{Confident<br/>and located?}
+        P6{Duplicate<br/>within 50 m?}
+        P7[Create<br/>work order]
+        P8[Attach to existing<br/>work order]
+        AG[Agent review<br/>queue]
+    end
+    subgraph OUT[Consumers]
+        DB[(service_request<br/>work_order)]
+        N[/Resident<br/>notifications/]
+        D[Supervisor<br/>dashboard]
+        Q[/Analyst<br/>query reports/]
+    end
+    S1 --> E --> T --> L --> TR --> M
+    T --> R
+    S1 --> LAND --> V --> Q
+    M -.-> P3
+    S2 --> P1 --> P2
+    P2 -- no --> P3 --> P4 --> P5
+    P2 -- yes --> AG
+    P5 -- no --> AG
+    P5 -- yes --> P6
+    AG -- corrected --> P6
+    P6 -- no --> P7 --> DB
+    P6 -- yes --> P8 --> DB
+    DB --> N
+    DB --> D
+    AG -. corrections for retraining .-> TR

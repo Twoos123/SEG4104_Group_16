@@ -1,0 +1,116 @@
+erDiagram
+    DEPARTMENT ||--o{ CATEGORY : owns
+    DEPARTMENT ||--o{ WORK_ORDER : "is assigned"
+    CATEGORY ||--o{ SERVICE_REQUEST : classifies
+    CATEGORY ||--o{ WORK_ORDER : types
+    CATEGORY ||--o{ HISTORICAL_REQUEST : labels
+    WARD ||--o{ STREET : contains
+    WARD ||--o{ SERVICE_REQUEST : locates
+    WARD ||--o{ WORK_ORDER : locates
+    WORK_ORDER ||--o{ SERVICE_REQUEST : fulfils
+    SERVICE_REQUEST ||--o{ SERVICE_REQUEST : "duplicate of"
+    SERVICE_REQUEST ||--o{ AGENT_REVIEW : "is reviewed in"
+    SERVICE_REQUEST ||--o{ NOTIFICATION : triggers
+    DEPARTMENT {
+        int dept_id PK
+        text name UK
+        text email
+    }
+    CATEGORY {
+        int category_id PK
+        text code UK
+        text name
+        int dept_id FK
+        int sla_hours
+        text default_priority
+    }
+    WARD {
+        int ward_id PK
+        text name UK
+    }
+    STREET {
+        int street_id PK
+        text name UK
+        int ward_id FK
+        real base_lat
+        real base_lon
+    }
+    SERVICE_REQUEST {
+        int request_id PK
+        text ticket UK
+        text channel
+        text text_redacted
+        text address
+        real lat
+        real lon
+        int ward_id FK
+        int category_id FK
+        real confidence
+        text urgency
+        text status
+        text review_reason
+        int duplicate_of FK
+        int work_order_id FK
+        text contact
+        text classifier_backend
+        real processed_ms
+        int auto_routed
+        text created_at
+    }
+    WORK_ORDER {
+        int work_order_id PK
+        text wo_number UK
+        int category_id FK
+        int dept_id FK
+        int ward_id FK
+        real lat
+        real lon
+        text priority
+        text status
+        int report_count
+        text created_at
+        text due_at
+        text completed_at
+    }
+    AGENT_REVIEW {
+        int review_id PK
+        int request_id FK
+        int predicted_category_id FK
+        int final_category_id FK
+        text agent
+        text reason
+        text resolved_at
+    }
+    NOTIFICATION {
+        int notification_id PK
+        int request_id FK
+        text channel
+        text message
+        text sent_at
+    }
+    HISTORICAL_REQUEST {
+        int hist_id PK
+        int source_row
+        text created_at
+        text channel
+        text text_redacted
+        int category_id FK
+        text address
+        real lat
+        real lon
+        int ward_id FK
+    }
+    ETL_RUN {
+        int run_id PK
+        text started_at
+        text source_file
+        int rows_extracted
+        int rows_loaded
+        int rows_rejected
+        int duplicates_removed
+        int pii_redactions
+    }
+    SETTING {
+        text key PK
+        text value
+    }
