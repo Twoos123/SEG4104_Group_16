@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}Work orders - SmartIntake{% endblock %}
+{% block body %}
+<h1>Work orders</h1>
+<p class="sub">Stand-in for the city Work Management System. Advancing a status notifies every resident who reported it.</p>
+<div class="card scroll"><table>
+<tr><th>Work order</th><th>Category</th><th>Department</th><th>Ward</th><th>Priority</th><th>Reports</th><th>Due</th><th>Status</th><th></th></tr>
+{% for o in rows %}<tr>
+<td>{{ o.wo_number }}</td><td>{{ o.category }}</td><td>{{ o.department }}</td><td>{{ o.ward or '-' }}</td>
+<td><span class="tag {{ o.priority }}">{{ o.priority }}</span></td><td>{{ o.report_count }}</td><td><small>{{ o.due_at }}</small></td>
+<td><span class="tag {{ o.status }}">{{ o.status.replace('_',' ') }}</span></td>
+<td>{% if o.status != 'COMPLETED' %}<form method="post" action="/workorders/{{ o.work_order_id }}/advance"><button class="ghost">Advance</button></form>{% endif %}</td>
+</tr>{% else %}<tr><td colspan="9">No work orders yet.</td></tr>{% endfor %}
+</table></div>
+{% endblock %}

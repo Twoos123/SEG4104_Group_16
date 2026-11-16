@@ -1,0 +1,16 @@
+etl/generate_history.py:23:111: E501 Line too long (113 > 110)
+etl/generate_history.py:35:111: E501 Line too long (115 > 110)
+etl/generate_history.py:38:111: E501 Line too long (111 > 110)
+etl/generate_history.py:39:111: E501 Line too long (111 > 110)
+etl/generate_history.py:45:111: E501 Line too long (121 > 110)
+etl/generate_history.py:75:111: E501 Line too long (117 > 110)
+etl/generate_history.py:79:111: E501 Line too long (120 > 110)
+etl/generate_history.py:120:5: C901 `generate` is too complex (14 > 10)
+etl/generate_history.py:164:111: E501 Line too long (111 > 110)
+etl/train.py:37:28: B905 `zip()` without an explicit `strict=` parameter
+etl/train.py:39:34: B905 `zip()` without an explicit `strict=` parameter
+sim/monte_carlo.py:165:111: E501 Line too long (113 > 110)
+sim/plan.py:53:111: E501 Line too long (111 > 110)
+tests/test_etl.py:65:35: SIM115 Use a context manager for opening files
+Found 14 errors.
+No fixes available (2 hidden fixes can be enabled with the `--unsafe-fixes` option).

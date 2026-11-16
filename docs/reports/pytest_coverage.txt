@@ -1,0 +1,35 @@
+============================= test session starts ==============================
+platform linux -- Python 3.13.18, pytest-9.1.1, pluggy-1.6.0
+rootdir: /home/claude/smartintake
+configfile: pyproject.toml
+testpaths: tests
+plugins: platformdirs-4.13.5, anyio-4.15.1, cov-7.1.0
+collected 79 items
+
+tests/test_api.py ...........                                            [ 13%]
+tests/test_classifier.py .............                                   [ 30%]
+tests/test_etl.py .....................                                  [ 56%]
+tests/test_gis.py ...........                                            [ 70%]
+tests/test_pipeline.py ................                                  [ 91%]
+tests/test_redact.py .......                                             [100%]
+
+================================ tests coverage ================================
+_______________ coverage: platform linux, python 3.13.18-final-0 _______________
+
+Name                Stmts   Miss Branch BrPart  Cover   Missing
+---------------------------------------------------------------
+app/__init__.py         1      0      0      0   100%
+app/classifier.py      61      6     10      2    89%   63-65, 101-104
+app/config.py          14      0      0      0   100%
+app/db.py              42      1      2      1    95%   139
+app/gis.py             34      0      8      0   100%
+app/main.py           118      2     10      0    98%   105-106
+app/pipeline.py       118      0     34      0   100%
+app/redact.py          14      0      0      0   100%
+etl/__init__.py         0      0      0      0   100%
+etl/elt_load.py        49      9     10      2    81%   50, 64-70, 74
+etl/etl.py             86      1     24      2    97%   140->145, 160
+etl/train.py           41     25      4      1    38%   26-31, 59-87, 91
+---------------------------------------------------------------
+TOTAL                 578     44    102      8    92%
+============================== 79 passed in 1.69s ==============================

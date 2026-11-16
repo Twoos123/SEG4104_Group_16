@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}Agent console - SmartIntake{% endblock %}
+{% block body %}
+<h1>Agent review queue</h1>
+<p class="sub">Only requests the system was unsure about, or that mention a safety hazard, land here. Urgent first.</p>
+{% if error %}<div class="err">{{ error }}</div>{% endif %}
+{% if not queue %}<div class="card">Nothing is waiting for review.</div>{% endif %}
+{% for q in queue %}
+<form class="card" method="post" action="/agent/{{ q.request_id }}/resolve">
+  <p><b>{{ q.ticket }}</b> {% if q.urgency == 'URGENT' %}<span class="tag URGENT">URGENT</span>{% endif %}
+  <span class="tag NEEDS_REVIEW">{{ q.review_reason }}</span> <small>{{ q.channel }} &middot; {{ q.created_at }}</small></p>
+  <p>{{ q.text_redacted }}</p>
+  <div class="row">
+    <div><label>Category{% if q.predicted %} <small>(model suggests {{ q.predicted }}, {{ '%.0f'|format((q.confidence or 0)*100) }}%)</small>{% endif %}</label>
+      <select name="category">{% for code, name in cats.items() %}<option value="{{ code }}" {% if code == q.predicted %}selected{% endif %}>{{ name }}</option>{% endfor %}</select></div>
+    <div><label>Address</label><input name="address" value="{{ q.address or '' }}" placeholder="e.g. 245 Bank St"></div>
+    <div style="flex:0 0 auto"><button type="submit">Confirm and route</button></div>
+  </div>
+</form>
+{% endfor %}
+{% endblock %}

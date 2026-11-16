@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% block title %}SmartIntake{% endblock %}</title>
+<style>
+:root{--ink:#16202b;--muted:#5b6876;--line:#d7dee6;--bg:#f4f6f9;--card:#fff;--brand:#0b5cad;--ok:#1b7f4b;--warn:#b26a00;--bad:#b3261e}
+*{box-sizing:border-box}
+body{margin:0;font:15px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--ink);background:var(--bg)}
+header{background:var(--brand);color:#fff}
+header .in{max-width:1080px;margin:0 auto;padding:12px 16px;display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+header b{font-size:18px;letter-spacing:.2px}
+header a{color:#dbe9f8;text-decoration:none;font-weight:500}
+header a:hover{color:#fff}
+main{max-width:1080px;margin:0 auto;padding:24px 16px 48px}
+h1{font-size:24px;margin:0 0 4px}
+p.sub{color:var(--muted);margin:0 0 20px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:18px;margin-bottom:16px}
+.grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(170px,1fr))}
+.kpi b{display:block;font-size:26px;font-variant-numeric:tabular-nums}
+.kpi span{color:var(--muted);font-size:13px}
+label{display:block;font-weight:600;margin:12px 0 4px}
+input,textarea,select{width:100%;padding:9px 10px;border:1px solid var(--line);border-radius:7px;font:inherit;background:#fff}
+textarea{min-height:110px}
+button{background:var(--brand);color:#fff;border:0;border-radius:7px;padding:9px 16px;font:inherit;font-weight:600;cursor:pointer}
+button.ghost{background:#fff;color:var(--brand);border:1px solid var(--brand)}
+table{width:100%;border-collapse:collapse}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:12px;text-transform:uppercase;letter-spacing:.5px;color:var(--muted)}
+.tag{display:inline-block;padding:2px 9px;border-radius:99px;font-size:12px;font-weight:700;background:#e7edf4}
+.tag.ROUTED,.tag.COMPLETED,.tag.CLOSED{background:#dff3e7;color:var(--ok)}
+.tag.NEEDS_REVIEW,.tag.ASSIGNED,.tag.IN_PROGRESS{background:#fdeed3;color:var(--warn)}
+.tag.URGENT{background:#fadfdc;color:var(--bad)}
+.tag.DUPLICATE{background:#e8e3f6;color:#4b3b8f}
+.err{background:#fadfdc;color:var(--bad);padding:10px 14px;border-radius:8px;margin-bottom:14px}
+.scroll{overflow-x:auto}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:end}
+.row>*{flex:1 1 160px}
+small{color:var(--muted)}
+</style>
+</head>
+<body>
+<header><div class="in"><b>SmartIntake 311</b>
+<a href="/">Report an issue</a><a href="/agent">Agent console</a><a href="/workorders">Work orders</a><a href="/dashboard">Dashboard</a></div></header>
+<main>{% block body %}{% endblock %}</main>
+</body>
+</html>

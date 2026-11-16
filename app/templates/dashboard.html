@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}Dashboard - SmartIntake{% endblock %}
+{% block body %}
+<h1>Supervisor dashboard</h1>
+<p class="sub">Classifier backend: {{ backend }}</p>
+<div class="grid">
+  <div class="card kpi"><b>{{ m.total_requests }}</b><span>Requests received</span></div>
+  <div class="card kpi"><b>{{ '%.0f'|format(m.automation_rate*100) }}%</b><span>Routed with no human touch (target 80%)</span></div>
+  <div class="card kpi"><b>{{ m.avg_processing_ms }} ms</b><span>Average processing time</span></div>
+  <div class="card kpi"><b>{{ m.duplicates_merged }}</b><span>Duplicates merged</span></div>
+  <div class="card kpi"><b>{{ m.awaiting_review }}</b><span>Awaiting agent review</span></div>
+  <div class="card kpi"><b>{{ m.open_work_orders }}</b><span>Open work orders</span></div>
+</div>
+<div class="card"><b>Routing rules</b>
+  <form class="row" method="post" action="/dashboard/rules">
+    <div><label>Confidence threshold (0.50 to 0.99)</label><input name="confidence_threshold" type="number" step="0.01" min="0.5" max="0.99" value="{{ settings.confidence_threshold }}"></div>
+    <div><label>Duplicate radius (metres)</label><input name="duplicate_radius_m" type="number" step="1" min="5" max="500" value="{{ settings.duplicate_radius_m }}"></div>
+    <div style="flex:0 0 auto"><button type="submit">Save rules</button></div>
+  </form>
+</div>
+<div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(300px,1fr))">
+  <div class="card scroll"><b>Requests by category</b><table>{% for c in m.by_category %}<tr><td>{{ c.name }}</td><td>{{ c.n }}</td></tr>{% else %}<tr><td>No data yet.</td></tr>{% endfor %}</table></div>
+  <div class="card scroll"><b>Most recent requests</b><table>{% for r in recent %}<tr><td><a href="/track/{{ r.ticket }}">{{ r.ticket }}</a></td><td>{{ r.category or '-' }}</td><td><span class="tag {{ r.status }}">{{ r.status.replace('_',' ') }}</span></td></tr>{% else %}<tr><td>No data yet.</td></tr>{% endfor %}</table></div>
+</div>
+{% endblock %}

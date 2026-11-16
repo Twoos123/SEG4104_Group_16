@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block body %}
+<h1>Report an issue to the City</h1>
+<p class="sub">Describe the problem in your own words. It is routed to the right crew automatically.</p>
+<form class="card" method="post" action="/requests">
+  <label for="text">What is the problem?</label>
+  <textarea id="text" name="text" required minlength="5" maxlength="2000" placeholder="e.g. There is a deep pothole in the right lane, cars are swerving around it"></textarea>
+  <label for="address">Street address</label>
+  <input id="address" name="address" list="streets" placeholder="e.g. 245 Bank St">
+  <datalist id="streets">{% for s in streets %}<option value="100 {{ s }}">{% endfor %}</datalist>
+  <div class="row">
+    <div><label for="contact">Email or mobile (optional, for updates)</label><input id="contact" name="contact"></div>
+    <div><label for="channel">Channel</label><select id="channel" name="channel"><option>WEB</option><option>PHONE</option><option>EMAIL</option></select></div>
+  </div>
+  <p><button type="submit">Submit request</button></p>
+</form>
+{% endblock %}

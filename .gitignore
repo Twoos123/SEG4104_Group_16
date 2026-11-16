@@ -1,0 +1,9 @@
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+.coverage
+data/*.db
+data/*.pkl
+data/*.csv
+data/*.txt
+data/model_metrics.json

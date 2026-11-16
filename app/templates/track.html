@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}{{ r.ticket }} - SmartIntake{% endblock %}
+{% block body %}
+<h1>Request {{ r.ticket }}</h1>
+<p class="sub">Submitted {{ r.created_at }}</p>
+<div class="card">
+  <p><span class="tag {{ r.status }}">{{ r.status.replace('_',' ') }}</span>
+  {% if r.urgency == 'URGENT' %}<span class="tag URGENT">URGENT</span>{% endif %}</p>
+  <div class="scroll"><table>
+    <tr><th>Description (personal details removed)</th><td>{{ r.text_redacted }}</td></tr>
+    <tr><th>Address</th><td>{{ r.address or 'Not provided' }}{% if r.ward %} <small>({{ r.ward }} ward)</small>{% endif %}</td></tr>
+    <tr><th>Category</th><td>{{ r.category or 'Not yet classified' }}{% if r.confidence is not none %} <small>confidence {{ '%.0f'|format(r.confidence*100) }}%</small>{% endif %}</td></tr>
+    <tr><th>Department</th><td>{{ r.department or '-' }}</td></tr>
+    {% if r.wo_number %}<tr><th>Work order</th><td>{{ r.wo_number }} <span class="tag {{ r.wo_status }}">{{ r.wo_status.replace('_',' ') }}</span> <small>due {{ r.due_at }} &middot; {{ r.report_count }} report(s)</small></td></tr>{% endif %}
+    {% if r.review_reason and r.status == 'NEEDS_REVIEW' %}<tr><th>Why a person is reviewing it</th><td>{{ r.review_reason }}</td></tr>{% endif %}
+  </table></div>
+</div>
+<div class="card"><b>Updates sent to resident</b>
+  <div class="scroll"><table>{% for n in notes %}<tr><td><small>{{ n.sent_at }}</small></td><td>{{ n.channel }}</td><td>{{ n.message }}</td></tr>{% endfor %}</table></div>
+</div>
+<p><a href="/">Report another issue</a></p>
+{% endblock %}

@@ -1,0 +1,1 @@
+{'requests': 1000, 'total_seconds': 0.97, 'throughput_per_second': 1028.1, 'mean_ms': 0.97, 'p95_ms': 1.21, 'max_ms': 16.88, 'automation_rate': 0.907, 'duplicates_merged': 217}
