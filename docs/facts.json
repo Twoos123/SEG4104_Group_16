@@ -1,0 +1,1605 @@
+{
+ "etl": {
+  "run_id": 1,
+  "started_at": "2026-11-16T12:51:24",
+  "source_file": "legacy_311_export.csv",
+  "rows_extracted": 6299,
+  "rows_loaded": 6038,
+  "rows_rejected": 156,
+  "duplicates_removed": 105,
+  "pii_redactions": 948,
+  "reject_reasons": {
+   "blank description": 66,
+   "unknown category label": 61,
+   "unparseable date": 29
+  },
+  "ungeocoded": 155
+ },
+ "model": {
+  "test_rows": 1208,
+  "accuracy_all": 0.9421,
+  "threshold": 0.8,
+  "auto_route_share": 0.923,
+  "accuracy_auto_routed": 0.9713,
+  "wrong_and_auto_routed_share": 0.0265,
+  "per_category": {
+   "fallen_tree": {
+    "precision": 0.976,
+    "recall": 0.96,
+    "support": 126
+   },
+   "graffiti": {
+    "precision": 0.963,
+    "recall": 0.906,
+    "support": 85
+   },
+   "illegal_dumping": {
+    "precision": 0.951,
+    "recall": 0.876,
+    "support": 89
+   },
+   "missed_garbage": {
+    "precision": 0.904,
+    "recall": 0.962,
+    "support": 78
+   },
+   "noise_complaint": {
+    "precision": 0.967,
+    "recall": 0.992,
+    "support": 119
+   },
+   "park_maintenance": {
+    "precision": 0.924,
+    "recall": 0.95,
+    "support": 141
+   },
+   "pothole": {
+    "precision": 0.922,
+    "recall": 0.992,
+    "support": 119
+   },
+   "sidewalk_damage": {
+    "precision": 0.941,
+    "recall": 0.93,
+    "support": 86
+   },
+   "snow_removal": {
+    "precision": 0.904,
+    "recall": 0.931,
+    "support": 101
+   },
+   "streetlight_out": {
+    "precision": 0.935,
+    "recall": 0.916,
+    "support": 95
+   },
+   "traffic_signal": {
+    "precision": 0.963,
+    "recall": 0.907,
+    "support": 86
+   },
+   "water_leak": {
+    "precision": 0.963,
+    "recall": 0.94,
+    "support": 83
+   }
+  },
+  "train_rows": 4830,
+  "sweep": [
+   {
+    "threshold": 0.5,
+    "auto_route_share": 0.9892,
+    "accuracy_auto_routed": 0.9448
+   },
+   {
+    "threshold": 0.6,
+    "auto_route_share": 0.9652,
+    "accuracy_auto_routed": 0.958
+   },
+   {
+    "threshold": 0.7,
+    "auto_route_share": 0.947,
+    "accuracy_auto_routed": 0.9677
+   },
+   {
+    "threshold": 0.8,
+    "auto_route_share": 0.923,
+    "accuracy_auto_routed": 0.9713
+   },
+   {
+    "threshold": 0.9,
+    "auto_route_share": 0.8419,
+    "accuracy_auto_routed": 0.9774
+   },
+   {
+    "threshold": 0.95,
+    "auto_route_share": 0.6887,
+    "accuracy_auto_routed": 0.9808
+   }
+  ]
+ },
+ "sim": {
+  "runs": 10000,
+  "cpm": {
+   "duration_weeks": 26.0,
+   "critical_path": [
+    "A",
+    "C",
+    "D",
+    "E",
+    "J",
+    "K",
+    "L",
+    "M",
+    "O",
+    "P"
+   ],
+   "table": {
+    "A": {
+     "es": 0.0,
+     "ef": 2.0,
+     "ls": 0.0,
+     "lf": 2.0,
+     "slack": 0.0
+    },
+    "B": {
+     "es": 2.0,
+     "ef": 4.0,
+     "ls": 6.0,
+     "lf": 8.0,
+     "slack": 4.0
+    },
+    "C": {
+     "es": 2.0,
+     "ef": 5.0,
+     "ls": 2.0,
+     "lf": 5.0,
+     "slack": 0.0
+    },
+    "D": {
+     "es": 5.0,
+     "ef": 8.0,
+     "ls": 5.0,
+     "lf": 8.0,
+     "slack": 0.0
+    },
+    "E": {
+     "es": 8.0,
+     "ef": 13.0,
+     "ls": 8.0,
+     "lf": 13.0,
+     "slack": 0.0
+    },
+    "F": {
+     "es": 5.0,
+     "ef": 10.0,
+     "ls": 6.0,
+     "lf": 11.0,
+     "slack": 1.0
+    },
+    "G": {
+     "es": 5.0,
+     "ef": 8.0,
+     "ls": 10.0,
+     "lf": 13.0,
+     "slack": 5.0
+    },
+    "H": {
+     "es": 5.0,
+     "ef": 12.0,
+     "ls": 6.0,
+     "lf": 13.0,
+     "slack": 1.0
+    },
+    "I": {
+     "es": 10.0,
+     "ef": 12.0,
+     "ls": 11.0,
+     "lf": 13.0,
+     "slack": 1.0
+    },
+    "J": {
+     "es": 13.0,
+     "ef": 16.0,
+     "ls": 13.0,
+     "lf": 16.0,
+     "slack": 0.0
+    },
+    "K": {
+     "es": 16.0,
+     "ef": 20.0,
+     "ls": 16.0,
+     "lf": 20.0,
+     "slack": 0.0
+    },
+    "L": {
+     "es": 20.0,
+     "ef": 22.0,
+     "ls": 20.0,
+     "lf": 22.0,
+     "slack": 0.0
+    },
+    "M": {
+     "es": 22.0,
+     "ef": 24.0,
+     "ls": 22.0,
+     "lf": 24.0,
+     "slack": 0.0
+    },
+    "N": {
+     "es": 20.0,
+     "ef": 23.0,
+     "ls": 21.0,
+     "lf": 24.0,
+     "slack": 1.0
+    },
+    "O": {
+     "es": 24.0,
+     "ef": 25.0,
+     "ls": 24.0,
+     "lf": 25.0,
+     "slack": 0.0
+    },
+    "P": {
+     "es": 25.0,
+     "ef": 26.0,
+     "ls": 25.0,
+     "lf": 26.0,
+     "slack": 0.0
+    }
+   }
+  },
+  "pert": {
+   "expected_weeks": 26.67,
+   "sd_weeks": 1.0,
+   "critical_path": [
+    "A",
+    "C",
+    "D",
+    "E",
+    "J",
+    "K",
+    "L",
+    "M",
+    "O",
+    "P"
+   ],
+   "te": {
+    "A": 2.0,
+    "B": 2.0,
+    "C": 3.0,
+    "D": 3.0,
+    "E": 5.17,
+    "F": 5.0,
+    "G": 3.0,
+    "H": 7.17,
+    "I": 2.0,
+    "J": 3.0,
+    "K": 4.0,
+    "L": 2.0,
+    "M": 2.17,
+    "N": 3.0,
+    "O": 1.17,
+    "P": 1.17
+   },
+   "variance": {
+    "A": 0.111,
+    "B": 0.111,
+    "C": 0.111,
+    "D": 0.111,
+    "E": 0.25,
+    "F": 0.111,
+    "G": 0.111,
+    "H": 0.694,
+    "I": 0.111,
+    "J": 0.111,
+    "K": 0.111,
+    "L": 0.111,
+    "M": 0.028,
+    "N": 0.111,
+    "O": 0.028,
+    "P": 0.028
+   }
+  },
+  "schedule": {
+   "mean": 27.9,
+   "p10": 26.1,
+   "p50": 27.9,
+   "p80": 29.1,
+   "p90": 29.7,
+   "prob_within_committed": 0.079,
+   "prob_within_tolerated": 0.931
+  },
+  "cost": {
+   "estimate": 440,
+   "baseline": 480,
+   "budget": 500,
+   "mean": 478.9,
+   "p50": 475.7,
+   "p80": 496.4,
+   "p90": 509.8,
+   "prob_within_estimate": 0.025,
+   "prob_within_baseline": 0.576,
+   "prob_within_budget": 0.832
+  },
+  "criticality_index": {
+   "A": 1.0,
+   "B": 0.0,
+   "C": 1.0,
+   "D": 0.629,
+   "E": 0.629,
+   "F": 0.018,
+   "G": 0.0,
+   "H": 0.353,
+   "I": 0.018,
+   "J": 1.0,
+   "K": 1.0,
+   "L": 0.871,
+   "M": 0.871,
+   "N": 0.129,
+   "O": 1.0,
+   "P": 1.0
+  },
+  "emv": {
+   "T1": 12.5,
+   "T2": 3.75,
+   "T3": 6.0,
+   "T4": 3.0,
+   "T5": 1.5,
+   "E1": 2.0,
+   "E2": 2.25,
+   "E3": 1.6,
+   "O1": 2.4,
+   "O2": 1.5,
+   "P1": 3.0,
+   "P2": 1.2
+  },
+  "emv_total": 40.7
+ },
+ "budget": {
+  "weekly": [
+   7.6,
+   7.6,
+   18.2,
+   18.2,
+   7.3,
+   35.1,
+   35.1,
+   35.1,
+   31.3,
+   31.3,
+   32.2,
+   32.2,
+   13.2,
+   11.1,
+   11.1,
+   11.1,
+   11.3,
+   11.3,
+   11.3,
+   11.3,
+   18.4,
+   18.4,
+   16.2,
+   7.5,
+   33.7,
+   3.1
+  ],
+  "cumulative": [
+   7.6,
+   15.3,
+   33.5,
+   51.6,
+   58.9,
+   94.0,
+   129.1,
+   164.1,
+   195.4,
+   226.7,
+   258.9,
+   291.1,
+   304.2,
+   315.3,
+   326.4,
+   337.6,
+   348.9,
+   360.2,
+   371.5,
+   382.8,
+   401.1,
+   419.5,
+   435.7,
+   443.2,
+   476.9,
+   480.0
+  ]
+ },
+ "benchmark": {
+  "requests": 1000,
+  "total_seconds": 1.02,
+  "throughput_per_second": 979.5,
+  "mean_ms": 1.02,
+  "p95_ms": 1.45,
+  "max_ms": 13.95,
+  "automation_rate": 0.907,
+  "duplicates_merged": 217
+ },
+ "tests": {
+  "passed": 79,
+  "per_file": {
+   "tests/test_api.py": 11,
+   "tests/test_classifier.py": 13,
+   "tests/test_etl.py": 21,
+   "tests/test_gis.py": 11,
+   "tests/test_pipeline.py": 16,
+   "tests/test_redact.py": 7
+  },
+  "coverage": [
+   {
+    "module": "app/__init__.py",
+    "stmts": 1,
+    "miss": 0,
+    "cover": "100%"
+   },
+   {
+    "module": "app/classifier.py",
+    "stmts": 61,
+    "miss": 6,
+    "cover": "89%"
+   },
+   {
+    "module": "app/config.py",
+    "stmts": 14,
+    "miss": 0,
+    "cover": "100%"
+   },
+   {
+    "module": "app/db.py",
+    "stmts": 42,
+    "miss": 1,
+    "cover": "95%"
+   },
+   {
+    "module": "app/gis.py",
+    "stmts": 34,
+    "miss": 0,
+    "cover": "100%"
+   },
+   {
+    "module": "app/main.py",
+    "stmts": 118,
+    "miss": 2,
+    "cover": "98%"
+   },
+   {
+    "module": "app/pipeline.py",
+    "stmts": 118,
+    "miss": 0,
+    "cover": "100%"
+   },
+   {
+    "module": "app/redact.py",
+    "stmts": 14,
+    "miss": 0,
+    "cover": "100%"
+   },
+   {
+    "module": "etl/__init__.py",
+    "stmts": 0,
+    "miss": 0,
+    "cover": "100%"
+   },
+   {
+    "module": "etl/elt_load.py",
+    "stmts": 49,
+    "miss": 9,
+    "cover": "81%"
+   },
+   {
+    "module": "etl/etl.py",
+    "stmts": 86,
+    "miss": 1,
+    "cover": "97%"
+   },
+   {
+    "module": "etl/train.py",
+    "stmts": 41,
+    "miss": 25,
+    "cover": "38%"
+   },
+   {
+    "module": "TOTAL",
+    "stmts": 578,
+    "miss": 44,
+    "cover": "92%"
+   }
+  ]
+ },
+ "bandit": {
+  "loc": 2011,
+  "low": 2,
+  "medium": 0,
+  "high": 0,
+  "suppressed": 4,
+  "issues": [
+   {
+    "id": "B403",
+    "text": "Consider possible security implications associated with pickle module.",
+    "file": "app/classifier.py",
+    "line": 13,
+    "severity": "LOW"
+   },
+   {
+    "id": "B403",
+    "text": "Consider possible security implications associated with pickle module.",
+    "file": "etl/train.py",
+    "line": 4,
+    "severity": "LOW"
+   }
+  ]
+ },
+ "ruff": {
+  "first_pass": {
+   "E501": 10,
+   "C901": 1,
+   "B905": 2,
+   "SIM115": 1
+  },
+  "first_total": 14,
+  "final_clean": true
+ },
+ "loc": {
+  "app": 852,
+  "etl": 648,
+  "sim": 433,
+  "tests": 561,
+  "scripts": 372
+ },
+ "elt": "Landed 6299 raw rows into lake.db\n\n## Q1 Data quality profile of the raw export\nraw_rows | blank_descriptions | unparseable_dates | unknown_labels | distinct_legacy_labels | rows_with_contact_details\n6299 | 66 | 29 | 61 | 40 | 809\n\n## Q2 Request volume by category (drives staffing and the classifier's class balance)\ncategory | requests | pct\npark_maintenance | 729 | 11.7\nfallen_tree | 647 | 10.4\npothole | 625 | 10.0\nnoise_complaint | 615 | 9.9\nsnow_removal | 519 | 8.3\nstreetlight_out | 497 | 8.0\nillegal_dumping | 463 | 7.4\ntraffic_signal | 443 | 7.1\nsidewalk_damage | 441 | 7.1\ngraffiti | 434 | 7.0\nwater_leak | 422 | 6.8\nmissed_garbage | 403 | 6.5\n\n## Q3 Seasonality: winter (Dec-Mar) versus the rest of the year for the most seasonal categories\ncategory | winter_requests | other_requests\npark_maintenance | 156 | 572\npothole | 202 | 419\nsnow_removal | 423 | 94\n\n## Q4 Channel mix (sizes the phone workload that agents still key in)\nchannel | requests | pct\nPHONE | 3142 | 49.9\nWEB | 1889 | 30.0\nEMAIL | 1268 | 20.1\n\n## Q5 Duplicate hotspots: same category reported at the same address 3+ times in one month\ncategory | location | year_month | reports\nfallen_tree | 317 Innes Rd | 2025-06 | 8\nsidewalk_damage | 218 Island Park Dr | 2025-12 | 8\npark_maintenance | 18 Alta Vista Dr | 2026-03 | 8\nfallen_tree | 277 Fallowfield Rd | 2024-11 | 7\npothole | 296 Fallowfield Rd | 2024-11 | 7\npothole | 190 Heron Rd | 2024-12 | 7\npothole | 556 Tenth Line Rd | 2024-12 | 7\nsnow_removal | 658 Campeau Dr | 2025-01 | 7\ngraffiti | 690 Trim Rd | 2025-02 | 7\nsnow_removal | 792 Kanata Ave | 2025-02 | 7\n\n## Q6 Label sprawl: how many different legacy spellings map to each category\ncategory | spellings | examples\nfallen_tree | 3 | tree/branch,Fallen Tree,Tree Down\ngraffiti | 3 | GRAFFITI,Graffiti,graffiti removal\nillegal_dumping | 3 | Illegal Dumping,Dumping (illegal),DUMPING\nmissed_garbage | 3 | garbage - missed,Missed Garbage,Missed Collection\nnoise_complaint | 3 | NOISE,Noise Complaint,Noise\npark_maintenance | 3 | Park Maintenance,Parks - Maintenance,PARKS\npothole | 4 | pot hole,Pothole Repair,POTHOLE,Pothole\nsidewalk_damage | 3 | Sidewalk - Repair,Sidewalk Damage,sidewalk\nsnow_removal | 3 | Snow Removal,SNOW/ICE,snow & ice\nstreetlight_out | 3 | Street Light,streetlight,Streetlight Out\ntraffic_signal | 3 | Traffic Signal,TRAFFIC LIGHT,Signal Problem\nwater_leak | 3 | Water Main,WATER - LEAK,Water Leak\n",
+ "queries_sql": "-- V1 Typed view over the raw landing table (schema applied on read)\nDROP VIEW IF EXISTS v_requests;\nCREATE VIEW v_requests AS\nSELECT\n    rowid AS landing_row,\n    CASE\n        WHEN received GLOB '[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]*' THEN substr(received, 1, 7)\n        WHEN received GLOB '[0-9][0-9]/[0-9][0-9]/[0-9][0-9][0-9][0-9]*' AND substr(received, 1, 2) != '00'\n            THEN substr(received, 7, 4) || '-' || substr(received, 1, 2)\n        WHEN received GLOB '[0-9][0-9]-[A-Z][a-z][a-z]-[0-9][0-9][0-9][0-9]*'\n            THEN substr(received, 8, 4) || '-' || CASE substr(received, 4, 3)\n                WHEN 'Jan' THEN '01' WHEN 'Feb' THEN '02' WHEN 'Mar' THEN '03' WHEN 'Apr' THEN '04'\n                WHEN 'May' THEN '05' WHEN 'Jun' THEN '06' WHEN 'Jul' THEN '07' WHEN 'Aug' THEN '08'\n                WHEN 'Sep' THEN '09' WHEN 'Oct' THEN '10' WHEN 'Nov' THEN '11' WHEN 'Dec' THEN '12' END\n    END AS year_month,\n    upper(channel) AS channel,\n    CASE\n        WHEN lower(type) LIKE '%pot%hole%' THEN 'pothole'\n        WHEN lower(type) LIKE '%sidewalk%' THEN 'sidewalk_damage'\n        WHEN lower(type) LIKE '%snow%' OR lower(type) LIKE '%ice%' THEN 'snow_removal'\n        WHEN lower(type) LIKE '%dumping%' THEN 'illegal_dumping'\n        WHEN lower(type) LIKE '%garbage%' OR lower(type) LIKE '%collection%' THEN 'missed_garbage'\n        WHEN lower(type) LIKE '%street%light%' THEN 'streetlight_out'\n        WHEN lower(type) LIKE '%signal%' OR lower(type) LIKE '%traffic%' THEN 'traffic_signal'\n        WHEN lower(type) LIKE '%tree%' THEN 'fallen_tree'\n        WHEN lower(type) LIKE '%park%' THEN 'park_maintenance'\n        WHEN lower(type) LIKE '%graffiti%' THEN 'graffiti'\n        WHEN lower(type) LIKE '%noise%' THEN 'noise_complaint'\n        WHEN lower(type) LIKE '%water%' THEN 'water_leak'\n    END AS category,\n    type AS legacy_label,\n    description,\n    location\nFROM raw_311_landing;\n\n-- Q1 Data quality profile of the raw export\nSELECT\n    COUNT(*) AS raw_rows,\n    SUM(description = '') AS blank_descriptions,\n    SUM(year_month IS NULL) AS unparseable_dates,\n    SUM(category IS NULL) AS unknown_labels,\n    COUNT(DISTINCT legacy_label) AS distinct_legacy_labels,\n    SUM(description LIKE '%@%' OR description GLOB '*[0-9][0-9][0-9]?[0-9][0-9][0-9][0-9]*') AS rows_with_contact_details\nFROM v_requests;\n\n-- Q2 Request volume by category (drives staffing and the classifier's class balance)\nSELECT category, COUNT(*) AS requests,\n       ROUND(100.0 * COUNT(*) / (SELECT COUNT(*) FROM v_requests WHERE category IS NOT NULL), 1) AS pct\nFROM v_requests WHERE category IS NOT NULL\nGROUP BY category ORDER BY requests DESC;\n\n-- Q3 Seasonality: winter (Dec-Mar) versus the rest of the year for the most seasonal categories\nSELECT category,\n       SUM(substr(year_month, 6, 2) IN ('12', '01', '02', '03')) AS winter_requests,\n       SUM(substr(year_month, 6, 2) NOT IN ('12', '01', '02', '03')) AS other_requests\nFROM v_requests\nWHERE category IN ('snow_removal', 'pothole', 'park_maintenance') AND year_month IS NOT NULL\nGROUP BY category;\n\n-- Q4 Channel mix (sizes the phone workload that agents still key in)\nSELECT channel, COUNT(*) AS requests,\n       ROUND(100.0 * COUNT(*) / (SELECT COUNT(*) FROM v_requests), 1) AS pct\nFROM v_requests GROUP BY channel ORDER BY requests DESC;\n\n-- Q5 Duplicate hotspots: same category reported at the same address 3+ times in one month\nSELECT category, location, year_month, COUNT(*) AS reports\nFROM v_requests\nWHERE category IS NOT NULL AND year_month IS NOT NULL AND location GLOB '[0-9]*'\nGROUP BY category, location, year_month\nHAVING COUNT(*) >= 3\nORDER BY reports DESC, year_month LIMIT 10;\n\n-- Q6 Label sprawl: how many different legacy spellings map to each category\nSELECT category, COUNT(DISTINCT legacy_label) AS spellings, group_concat(DISTINCT legacy_label) AS examples\nFROM v_requests WHERE category IS NOT NULL\nGROUP BY category ORDER BY category\n",
+ "data_dictionary": [
+  {
+   "table": "department",
+   "column": "dept_id",
+   "type": "INTEGER",
+   "key": "PK",
+   "required": "Yes",
+   "description": "Department identifier"
+  },
+  {
+   "table": "department",
+   "column": "name",
+   "type": "TEXT",
+   "key": "",
+   "required": "Yes",
+   "description": "Department name"
+  },
+  {
+   "table": "department",
+   "column": "email",
+   "type": "TEXT",
+   "key": "",
+   "required": "Yes",
+   "description": "Dispatch mailbox for the department"
+  },
+  {
+   "table": "category",
+   "column": "category_id",
+   "type": "INTEGER",
+   "key": "PK",
+   "required": "Yes",
+   "description": "Category identifier"
+  },
+  {
+   "table": "category",
+   "column": "code",
+   "type": "TEXT",
+   "key": "",
+   "required": "Yes",
+   "description": "Short code used by the classifier"
+  },
+  {
+   "table": "category",
+   "column": "name",
+   "type": "TEXT",
+   "key": "",
+   "required": "Yes",
+   "description": "Name shown to residents and agents"
+  },
+  {
+   "table": "category",
+   "column": "dept_id",
+   "type": "INTEGER",
+   "key": "FK > department.dept_id",
+   "required": "Yes",
+   "description": "Department that handles this category"
+  },
+  {
+   "table": "category",
+   "column": "sla_hours",
+   "type": "INTEGER",
+   "key": "",
+   "required": "Yes",
+   "description": "Target hours to complete a work order"
+  },
+  {
+   "table": "category",
+   "column": "default_priority",
+   "type": "TEXT",
+   "key": "",
+   "required": "Yes",
+   "description": "Priority given to routine requests: LOW, MEDIUM or HIGH"
+  },
+  {
+   "table": "ward",
+   "column": "ward_id",
+   "type": "INTEGER",
+   "key": "PK",
+   "required": "Yes",
+   "description": "Ward identifier"
+  },
+  {
+   "table": "ward",
+   "column": "name",
+   "type": "TEXT",
+   "key": "",
+   "required": "Yes",
+   "description": "Ward name"
+  },
+  {
+   "table": "street",
+   "column": "street_id",
+   "type": "INTEGER",
+   "key": "PK",
+   "required": "Yes",
+   "description": "Street identifier"
+  },
+  {
+   "table": "street",
+   "column": "name",
+   "type": "TEXT",
+   "key": "",
+   "required": "Yes",
+   "description": "Street name as held by the GIS"
+  },
+  {
+   "table": "street",
+   "column": "ward_id",
+   "type": "INTEGER",
+   "key": "FK > ward.ward_id",
+   "required": "Yes",
+   "description": "Ward the street belongs to"
+  },
+  {
+   "table": "street",
+   "column": "base_lat",
+   "type": "REAL",
+   "key": "",
+   "required": "Yes",
+   "description": "Latitude of house number 0"
+  },
+  {
+   "table": "street",
+   "column": "base_lon",
+   "type": "REAL",
+   "key": "",
+   "required": "Yes",
+   "description": "Longitude of the street"
+  },
+  {
+   "table": "service_request",
+   "column": "request_id",
+   "type": "INTEGER",
+   "key": "PK",
+   "required": "Yes",
+   "description": "Request identifier"
+  },
+  {
+   "table": "service_request",
+   "column": "ticket",
+   "type": "TEXT",
+   "key": "",
+   "required": "No",
+   "description": "Public ticket number, e.g. SR-2026-000123"
+  },
+  {
+   "table": "service_request",
+   "column": "channel",
+   "type": "TEXT",
+   "key": "",
+   "required": "Yes",
+   "description": "How it arrived: WEB, EMAIL or PHONE"
+  },
+  {
+   "table": "service_request",
+   "column": "text_redacted",
+   "type": "TEXT",
+   "key": "",
+   "required": "Yes",
+   "description": "Description with personal details removed"
+  },
+  {
+   "table": "service_request",
+   "column": "address",
+   "type": "TEXT",
+   "key": "",
+   "required": "No",
+   "description": "Address as given by the resident"
+  },
+  {
+   "table": "service_request",
+   "column": "lat",
+   "type": "REAL",
+   "key": "",
+   "required": "No",
+   "description": "Latitude from geocoding"
+  },
+  {
+   "table": "service_request",
+   "column": "lon",
+   "type": "REAL",
+   "key": "",
+   "required": "No",
+   "description": "Longitude from geocoding"
+  },
+  {
+   "table": "service_request",
+   "column": "ward_id",
+   "type": "INTEGER",
+   "key": "FK > ward.ward_id",
+   "required": "No",
+   "description": "Ward from geocoding"
+  },
+  {
+   "table": "service_request",
+   "column": "category_id",
+   "type": "INTEGER",
+   "key": "FK > category.category_id",
+   "required": "No",
+   "description": "Predicted, then agent-confirmed, category"
+  },
+  {
+   "table": "service_request",
+   "column": "confidence",
+   "type": "REAL",
+   "key": "",
+   "required": "No",
+   "description": "Classifier confidence, 0 to 1"
+  },
+  {
+   "table": "service_request",
+   "column": "urgency",
+   "type": "TEXT",
+   "key": "",
+   "required": "Yes",
+   "description": "ROUTINE, or URGENT when a safety keyword is present"
+  },
+  {
+   "table": "service_request",
+   "column": "status",
+   "type": "TEXT",
+   "key": "",
+   "required": "Yes",
+   "description": "NEEDS_REVIEW, ROUTED, DUPLICATE or CLOSED"
+  },
+  {
+   "table": "service_request",
+   "column": "review_reason",
+   "type": "TEXT",
+   "key": "",
+   "required": "No",
+   "description": "Why a person had to review it"
+  },
+  {
+   "table": "service_request",
+   "column": "duplicate_of",
+   "type": "INTEGER",
+   "key": "FK > service_request.request_id",
+   "required": "No",
+   "description": "First request for the same problem, if a duplicate"
+  },
+  {
+   "table": "service_request",
+   "column": "work_order_id",
+   "type": "INTEGER",
+   "key": "FK > work_order.work_order_id",
+   "required": "No",
+   "description": "Work order that fulfils the request"
+  },
+  {
+   "table": "service_request",
+   "column": "contact",
+   "type": "TEXT",
+   "key": "",
+   "required": "No",
+   "description": "Email or mobile for updates (optional)"
+  },
+  {
+   "table": "service_request",
+   "column": "classifier_backend",
+   "type": "TEXT",
+   "key": "",
+   "required": "No",
+   "description": "Which backend classified it (llm or local model)"
+  },
+  {
+   "table": "service_request",
+   "column": "processed_ms",
+   "type": "REAL",
+   "key": "",
+   "required": "No",
+   "description": "Pipeline processing time in milliseconds"
+  },
+  {
+   "table": "service_request",
+   "column": "auto_routed",
+   "type": "INTEGER",
+   "key": "",
+   "required": "Yes",
+   "description": "1 if routed with no human touch, else 0"
+  },
+  {
+   "table": "service_request",
+   "column": "created_at",
+   "type": "TEXT",
+   "key": "",
+   "required": "Yes",
+   "description": "When it was received (UTC, ISO 8601)"
+  },
+  {
+   "table": "work_order",
+   "column": "work_order_id",
+   "type": "INTEGER",
+   "key": "PK",
+   "required": "Yes",
+   "description": "Work order identifier"
+  },
+  {
+   "table": "work_order",
+   "column": "wo_number",
+   "type": "TEXT",
+   "key": "",
+   "required": "No",
+   "description": "Public number, e.g. WO-2026-000045"
+  },
+  {
+   "table": "work_order",
+   "column": "category_id",
+   "type": "INTEGER",
+   "key": "FK > category.category_id",
+   "required": "Yes",
+   "description": "Type of work"
+  },
+  {
+   "table": "work_order",
+   "column": "dept_id",
+   "type": "INTEGER",
+   "key": "FK > department.dept_id",
+   "required": "Yes",
+   "description": "Department assigned"
+  },
+  {
+   "table": "work_order",
+   "column": "ward_id",
+   "type": "INTEGER",
+   "key": "FK > ward.ward_id",
+   "required": "No",
+   "description": "Ward of the job"
+  },
+  {
+   "table": "work_order",
+   "column": "lat",
+   "type": "REAL",
+   "key": "",
+   "required": "No",
+   "description": "Latitude of the job"
+  },
+  {
+   "table": "work_order",
+   "column": "lon",
+   "type": "REAL",
+   "key": "",
+   "required": "No",
+   "description": "Longitude of the job"
+  },
+  {
+   "table": "work_order",
+   "column": "priority",
+   "type": "TEXT",
+   "key": "",
+   "required": "Yes",
+   "description": "LOW, MEDIUM, HIGH or URGENT"
+  },
+  {
+   "table": "work_order",
+   "column": "status",
+   "type": "TEXT",
+   "key": "",
+   "required": "Yes",
+   "description": "OPEN, ASSIGNED, IN_PROGRESS or COMPLETED"
+  },
+  {
+   "table": "work_order",
+   "column": "report_count",
+   "type": "INTEGER",
+   "key": "",
+   "required": "Yes",
+   "description": "Number of resident reports merged into it"
+  },
+  {
+   "table": "work_order",
+   "column": "created_at",
+   "type": "TEXT",
+   "key": "",
+   "required": "Yes",
+   "description": "When it was opened"
+  },
+  {
+   "table": "work_order",
+   "column": "due_at",
+   "type": "TEXT",
+   "key": "",
+   "required": "Yes",
+   "description": "Created time plus the category SLA"
+  },
+  {
+   "table": "work_order",
+   "column": "completed_at",
+   "type": "TEXT",
+   "key": "",
+   "required": "No",
+   "description": "When the crew finished"
+  },
+  {
+   "table": "agent_review",
+   "column": "review_id",
+   "type": "INTEGER",
+   "key": "PK",
+   "required": "Yes",
+   "description": "Review identifier"
+  },
+  {
+   "table": "agent_review",
+   "column": "request_id",
+   "type": "INTEGER",
+   "key": "FK > service_request.request_id",
+   "required": "Yes",
+   "description": "Request that was reviewed"
+  },
+  {
+   "table": "agent_review",
+   "column": "predicted_category_id",
+   "type": "INTEGER",
+   "key": "FK > category.category_id",
+   "required": "No",
+   "description": "What the classifier suggested"
+  },
+  {
+   "table": "agent_review",
+   "column": "final_category_id",
+   "type": "INTEGER",
+   "key": "FK > category.category_id",
+   "required": "Yes",
+   "description": "What the agent chose"
+  },
+  {
+   "table": "agent_review",
+   "column": "agent",
+   "type": "TEXT",
+   "key": "",
+   "required": "Yes",
+   "description": "Agent who resolved it"
+  },
+  {
+   "table": "agent_review",
+   "column": "reason",
+   "type": "TEXT",
+   "key": "",
+   "required": "No",
+   "description": "Why it was flagged"
+  },
+  {
+   "table": "agent_review",
+   "column": "resolved_at",
+   "type": "TEXT",
+   "key": "",
+   "required": "Yes",
+   "description": "When it was resolved"
+  },
+  {
+   "table": "notification",
+   "column": "notification_id",
+   "type": "INTEGER",
+   "key": "PK",
+   "required": "Yes",
+   "description": "Notification identifier"
+  },
+  {
+   "table": "notification",
+   "column": "request_id",
+   "type": "INTEGER",
+   "key": "FK > service_request.request_id",
+   "required": "Yes",
+   "description": "Request it concerns"
+  },
+  {
+   "table": "notification",
+   "column": "channel",
+   "type": "TEXT",
+   "key": "",
+   "required": "Yes",
+   "description": "EMAIL, SMS or NONE (no contact given)"
+  },
+  {
+   "table": "notification",
+   "column": "message",
+   "type": "TEXT",
+   "key": "",
+   "required": "Yes",
+   "description": "Text sent to the resident"
+  },
+  {
+   "table": "notification",
+   "column": "sent_at",
+   "type": "TEXT",
+   "key": "",
+   "required": "Yes",
+   "description": "When it was sent"
+  },
+  {
+   "table": "historical_request",
+   "column": "hist_id",
+   "type": "INTEGER",
+   "key": "PK",
+   "required": "Yes",
+   "description": "Row identifier"
+  },
+  {
+   "table": "historical_request",
+   "column": "source_row",
+   "type": "INTEGER",
+   "key": "",
+   "required": "Yes",
+   "description": "Line number in the legacy CSV (lineage)"
+  },
+  {
+   "table": "historical_request",
+   "column": "created_at",
+   "type": "TEXT",
+   "key": "",
+   "required": "Yes",
+   "description": "Received date, normalised to ISO 8601"
+  },
+  {
+   "table": "historical_request",
+   "column": "channel",
+   "type": "TEXT",
+   "key": "",
+   "required": "Yes",
+   "description": "WEB, EMAIL or PHONE"
+  },
+  {
+   "table": "historical_request",
+   "column": "text_redacted",
+   "type": "TEXT",
+   "key": "",
+   "required": "Yes",
+   "description": "Description with personal details removed"
+  },
+  {
+   "table": "historical_request",
+   "column": "category_id",
+   "type": "INTEGER",
+   "key": "FK > category.category_id",
+   "required": "Yes",
+   "description": "Category mapped from the legacy label"
+  },
+  {
+   "table": "historical_request",
+   "column": "address",
+   "type": "TEXT",
+   "key": "",
+   "required": "No",
+   "description": "Address as recorded"
+  },
+  {
+   "table": "historical_request",
+   "column": "lat",
+   "type": "REAL",
+   "key": "",
+   "required": "No",
+   "description": "Latitude, null if not geocoded"
+  },
+  {
+   "table": "historical_request",
+   "column": "lon",
+   "type": "REAL",
+   "key": "",
+   "required": "No",
+   "description": "Longitude, null if not geocoded"
+  },
+  {
+   "table": "historical_request",
+   "column": "ward_id",
+   "type": "INTEGER",
+   "key": "FK > ward.ward_id",
+   "required": "No",
+   "description": "Ward, null if not geocoded"
+  },
+  {
+   "table": "etl_run",
+   "column": "run_id",
+   "type": "INTEGER",
+   "key": "PK",
+   "required": "Yes",
+   "description": "Run identifier"
+  },
+  {
+   "table": "etl_run",
+   "column": "started_at",
+   "type": "TEXT",
+   "key": "",
+   "required": "Yes",
+   "description": "When the job started"
+  },
+  {
+   "table": "etl_run",
+   "column": "source_file",
+   "type": "TEXT",
+   "key": "",
+   "required": "Yes",
+   "description": "File that was loaded"
+  },
+  {
+   "table": "etl_run",
+   "column": "rows_extracted",
+   "type": "INTEGER",
+   "key": "",
+   "required": "Yes",
+   "description": "Rows read from the source"
+  },
+  {
+   "table": "etl_run",
+   "column": "rows_loaded",
+   "type": "INTEGER",
+   "key": "",
+   "required": "Yes",
+   "description": "Rows written to historical_request"
+  },
+  {
+   "table": "etl_run",
+   "column": "rows_rejected",
+   "type": "INTEGER",
+   "key": "",
+   "required": "Yes",
+   "description": "Rows written to the rejects file"
+  },
+  {
+   "table": "etl_run",
+   "column": "duplicates_removed",
+   "type": "INTEGER",
+   "key": "",
+   "required": "Yes",
+   "description": "Exact duplicate rows dropped"
+  },
+  {
+   "table": "etl_run",
+   "column": "pii_redactions",
+   "type": "INTEGER",
+   "key": "",
+   "required": "Yes",
+   "description": "Personal details removed from free text"
+  },
+  {
+   "table": "setting",
+   "column": "key",
+   "type": "TEXT",
+   "key": "PK",
+   "required": "Yes",
+   "description": "Rule name, e.g. confidence_threshold"
+  },
+  {
+   "table": "setting",
+   "column": "value",
+   "type": "TEXT",
+   "key": "",
+   "required": "Yes",
+   "description": "Current value set by the supervisor"
+  }
+ ],
+ "activities": {
+  "A": {
+   "name": "Requirements & scope sign-off",
+   "preds": [],
+   "amb": [
+    1,
+    2,
+    3
+   ],
+   "labour": 14,
+   "other": 0
+  },
+  "B": {
+   "name": "Privacy impact assessment",
+   "preds": [
+    "A"
+   ],
+   "amb": [
+    1,
+    2,
+    3
+   ],
+   "labour": 10,
+   "other": 10
+  },
+  "C": {
+   "name": "Architecture & data model",
+   "preds": [
+    "A"
+   ],
+   "amb": [
+    2,
+    3,
+    4
+   ],
+   "labour": 20,
+   "other": 0
+  },
+  "D": {
+   "name": "Historical data ETL & model evaluation",
+   "preds": [
+    "C"
+   ],
+   "amb": [
+    2,
+    3,
+    4
+   ],
+   "labour": 22,
+   "other": 0
+  },
+  "E": {
+   "name": "LLM classification service",
+   "preds": [
+    "B",
+    "D"
+   ],
+   "amb": [
+    4,
+    5,
+    7
+   ],
+   "labour": 56,
+   "other": 0
+  },
+  "F": {
+   "name": "Intake API & agent console",
+   "preds": [
+    "C"
+   ],
+   "amb": [
+    4,
+    5,
+    6
+   ],
+   "labour": 46,
+   "other": 0
+  },
+  "G": {
+   "name": "GIS geocoding & duplicate detection",
+   "preds": [
+    "C"
+   ],
+   "amb": [
+    2,
+    3,
+    4
+   ],
+   "labour": 22,
+   "other": 0
+  },
+  "H": {
+   "name": "WMS integration connector",
+   "preds": [
+    "C"
+   ],
+   "amb": [
+    5,
+    7,
+    10
+   ],
+   "labour": 52,
+   "other": 0
+  },
+  "I": {
+   "name": "Notifications & dashboard",
+   "preds": [
+    "F"
+   ],
+   "amb": [
+    1,
+    2,
+    3
+   ],
+   "labour": 20,
+   "other": 0
+  },
+  "J": {
+   "name": "Integration & system testing",
+   "preds": [
+    "E",
+    "G",
+    "H",
+    "I"
+   ],
+   "amb": [
+    2,
+    3,
+    4
+   ],
+   "labour": 28,
+   "other": 0
+  },
+  "K": {
+   "name": "UAT & security test",
+   "preds": [
+    "J"
+   ],
+   "amb": [
+    3,
+    4,
+    5
+   ],
+   "labour": 18,
+   "other": 20
+  },
+  "L": {
+   "name": "Pilot deployment (roads & waste)",
+   "preds": [
+    "K"
+   ],
+   "amb": [
+    1,
+    2,
+    3
+   ],
+   "labour": 16,
+   "other": 0
+  },
+  "M": {
+   "name": "Pilot operation & evaluation",
+   "preds": [
+    "L"
+   ],
+   "amb": [
+    2,
+    2,
+    3
+   ],
+   "labour": 12,
+   "other": 0
+  },
+  "N": {
+   "name": "Training & change management",
+   "preds": [
+    "K"
+   ],
+   "amb": [
+    2,
+    3,
+    4
+   ],
+   "labour": 4,
+   "other": 20
+  },
+  "O": {
+   "name": "City-wide rollout",
+   "preds": [
+    "M",
+    "N"
+   ],
+   "amb": [
+    1,
+    1,
+    2
+   ],
+   "labour": 8,
+   "other": 0
+  },
+  "P": {
+   "name": "Handover & lessons learned",
+   "preds": [
+    "O"
+   ],
+   "amb": [
+    1,
+    1,
+    2
+   ],
+   "labour": 2,
+   "other": 0
+  }
+ },
+ "risks": {
+  "T1": {
+   "category": "Technical",
+   "risk": "Legacy WMS API is poorly documented or access is slow, delaying integration",
+   "p": 0.5,
+   "cost": 25,
+   "impact": 4,
+   "pscore": 4,
+   "activity": "H",
+   "delay": [
+    1,
+    3
+   ],
+   "strategy": "Mitigate",
+   "response": "API spike in week 3; build against a mock WMS; vendor support clause in contract",
+   "owner": "Tech Lead"
+  },
+  "T2": {
+   "category": "Technical",
+   "risk": "Urgent safety request is classified as routine",
+   "p": 0.15,
+   "cost": 25,
+   "impact": 5,
+   "pscore": 2,
+   "activity": null,
+   "delay": null,
+   "strategy": "Mitigate",
+   "response": "Safety keywords bypass the model; confidence threshold; weekly accuracy audit",
+   "owner": "QA Lead"
+  },
+  "T3": {
+   "category": "Technical",
+   "risk": "Classifier accuracy on real city data falls below the 92% target",
+   "p": 0.3,
+   "cost": 20,
+   "impact": 4,
+   "pscore": 3,
+   "activity": "E",
+   "delay": [
+    1,
+    2
+   ],
+   "strategy": "Mitigate",
+   "response": "Evaluate on 2 years of history by week 10; agent corrections feed retraining",
+   "owner": "Tech Lead"
+  },
+  "T4": {
+   "category": "Technical",
+   "risk": "Personal information reaches the external LLM provider",
+   "p": 0.05,
+   "cost": 60,
+   "impact": 5,
+   "pscore": 1,
+   "activity": null,
+   "delay": null,
+   "strategy": "Avoid",
+   "response": "Redact before any model call; Canadian region; no-training clause; security test",
+   "owner": "Tech Lead"
+  },
+  "T5": {
+   "category": "Technical",
+   "risk": "System cannot handle storm-peak volume (5,000 requests/day)",
+   "p": 0.15,
+   "cost": 10,
+   "impact": 3,
+   "pscore": 2,
+   "activity": "J",
+   "delay": [
+    0.5,
+    1
+   ],
+   "strategy": "Mitigate",
+   "response": "Load test at 2x peak in system testing; queue requests; autoscale containers",
+   "owner": "Tech Lead"
+  },
+  "E1": {
+   "category": "External",
+   "risk": "LLM provider raises prices or changes its API",
+   "p": 0.2,
+   "cost": 10,
+   "impact": 2,
+   "pscore": 2,
+   "activity": null,
+   "delay": null,
+   "strategy": "Accept",
+   "response": "Monthly usage cap and alerts; provider-agnostic classifier interface; local fallback model",
+   "owner": "PM"
+  },
+  "E2": {
+   "category": "External",
+   "risk": "Privacy review requires a design change",
+   "p": 0.15,
+   "cost": 15,
+   "impact": 3,
+   "pscore": 2,
+   "activity": "B",
+   "delay": [
+    1,
+    2
+   ],
+   "strategy": "Mitigate",
+   "response": "Start the privacy impact assessment in week 2; involve the privacy office in design",
+   "owner": "BA"
+  },
+  "E3": {
+   "category": "External",
+   "risk": "WMS vendor support is unavailable when needed",
+   "p": 0.2,
+   "cost": 8,
+   "impact": 3,
+   "pscore": 2,
+   "activity": null,
+   "delay": null,
+   "strategy": "Transfer",
+   "response": "Support hours and response times written into the vendor contract",
+   "owner": "PM"
+  },
+  "O1": {
+   "category": "Organizational",
+   "risk": "Call-centre agents resist the new process or fear job loss",
+   "p": 0.3,
+   "cost": 8,
+   "impact": 3,
+   "pscore": 3,
+   "activity": "N",
+   "delay": [
+    0.5,
+    1.5
+   ],
+   "strategy": "Mitigate",
+   "response": "Agents take part in design and UAT; reassign them to complex cases; hands-on training",
+   "owner": "PM"
+  },
+  "O2": {
+   "category": "Organizational",
+   "risk": "A key team member leaves mid-project",
+   "p": 0.1,
+   "cost": 15,
+   "impact": 3,
+   "pscore": 1,
+   "activity": null,
+   "delay": null,
+   "strategy": "Mitigate",
+   "response": "Pair on critical modules; documentation in the repo; cross-training",
+   "owner": "PM"
+  },
+  "P1": {
+   "category": "Project management",
+   "risk": "Scope creep: more categories or channels (for example voice) are added",
+   "p": 0.25,
+   "cost": 12,
+   "impact": 3,
+   "pscore": 3,
+   "activity": null,
+   "delay": null,
+   "strategy": "Avoid",
+   "response": "Signed scope statement; change requests go to the sponsor with cost and schedule impact",
+   "owner": "PM"
+  },
+  "P2": {
+   "category": "Project management",
+   "risk": "Poor historical data quality delays model training",
+   "p": 0.2,
+   "cost": 6,
+   "impact": 2,
+   "pscore": 2,
+   "activity": "D",
+   "delay": [
+    0.5,
+    1.5
+   ],
+   "strategy": "Mitigate",
+   "response": "Profile the legacy export in week 3; ETL rejects are logged and reviewed",
+   "owner": "BA"
+  }
+ },
+ "plan": {
+  "cloud_build": 18,
+  "cloud_ops": 22,
+  "contingency": 40,
+  "mgmt": 20
+ }
+}

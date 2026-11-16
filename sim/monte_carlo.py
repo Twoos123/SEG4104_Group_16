@@ -222,7 +222,7 @@ def main() -> dict:
     ax.set_xlim(0, 112)
     ax.set_xlabel("Share of simulation runs on the critical path", color=MUTED)
     ax.set_title(
-        "Criticality index: the WMS connector is critical far more often than CPM suggests",
+        f"WMS connector (H) is on the critical path in {sim['criticality']['H']:.0%} of runs",
         loc="left",
         color=INK,
         fontsize=11,
