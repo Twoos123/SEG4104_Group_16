@@ -1,0 +1,27 @@
+# Git metadata and repository documentation
+.git
+.gitignore
+docs
+README.md
+
+# Environment secrets
+.env
+
+# Local caches, virtual environments and build output
+__pycache__
+.pytest_cache
+.ruff_cache
+.coverage
+.venv
+venv
+node_modules
+bin
+obj
+build
+*.log
+
+# Locally generated data: the image builds its own copy
+data
+
+# Not needed at run time
+tests
