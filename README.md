@@ -42,7 +42,7 @@ With the app running, confirm it is healthy and submit a request from the comman
 
 ```bash
 curl http://127.0.0.1:8000/health
-curl -X POST http://127.0.0.1:8000/api/requests      -H "Content-Type: application/json"      -d '{"text": "Deep pothole in the right lane", "address": "245 Bank St", "channel": "WEB"}'
+curl -X POST http://127.0.0.1:8000/api/requests -H "Content-Type: application/json" -d '{"text": "Deep pothole in the right lane", "address": "245 Bank St", "channel": "WEB"}'
 ```
 
 The response contains the ticket number, the predicted category, its confidence and the routing status.
