@@ -81,3 +81,9 @@ docs/     generated reports and figures
 ```
 
 All data is synthetic. No real resident or city data is used.
+
+## Documentation
+
+- [Software Components](docs/COMPONENTS.md)
+- [System Architecture](docs/ARCHITECTURE.md)
+- [Development Methodology](docs/METHODOLOGY.md)
