@@ -7,3 +7,14 @@ data/*.pkl
 data/*.csv
 data/*.txt
 data/model_metrics.json
+
+# Environment secrets and local virtual environments
+.env
+.venv/
+venv/
+
+# Logs and build output
+*.log
+build/
+dist/
+*.egg-info/
