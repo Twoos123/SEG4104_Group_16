@@ -6,6 +6,11 @@ A resident describes a problem in plain words. SmartIntake removes personal deta
 safety hazards, classifies the request, locates it, merges duplicates and opens a work order, or
 sends it to an agent when it is unsure.
 
+## Prerequisites
+
+* Python 3.10 or newer (the Docker image uses Python 3.12)
+* Optional: Docker Desktop, to build and run the app as a container
+
 ## Run it
 
 ```bash
@@ -30,6 +35,17 @@ Or with Docker: `docker build -t smartintake . && docker run -p 8000:8000 smarti
 | Work orders (mock WMS) | `/workorders` | Field crews |
 | KPI dashboard and routing rules | `/dashboard` | Operations supervisor |
 | API docs (OpenAPI) | `/docs` | Developers |
+
+## Quick API check
+
+With the app running, confirm it is healthy and submit a request from the command line:
+
+```bash
+curl http://127.0.0.1:8000/health
+curl -X POST http://127.0.0.1:8000/api/requests      -H "Content-Type: application/json"      -d '{"text": "Deep pothole in the right lane", "address": "245 Bank St", "channel": "WEB"}'
+```
+
+The response contains the ticket number, the predicted category, its confidence and the routing status.
 
 ## Classifier backends
 
